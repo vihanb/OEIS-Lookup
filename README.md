@@ -1,8 +1,8 @@
-# Putt
-A smarter golfing language
+# OEIS Lookup
+A tool for looking up sequences in OEIS
 
 ---
-Putt is written in Python, it requires:
+This is written in Python, it requires:
  - `urllib2`
  - `lxml`
  - `beautifulsoup4`
