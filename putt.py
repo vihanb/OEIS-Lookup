@@ -23,7 +23,7 @@ def execute(code, nth):
           len(tag.contents) > 1 # A two column table
         ))
       )) )
-    }[nth]
+    }.get(nth, "Overflow")
   except HTTPError:
     print "Could not find sequence A%06d" % num
   except URLError:
