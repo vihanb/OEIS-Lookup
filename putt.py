@@ -4,11 +4,14 @@
 import urllib2
 import sys
 
-LANGNAME = "Putt"
+LANGNAME = "Putt" # The language name
+
+def determine(code): # Determines what do with the source code
+  pass
 
 if __name__ == '__main__':
   if len(sys.argv) > 1:
-    pass
-  else:
-    print """This is the %s interpreter
+    determine(code)
+    else:
+      print """This is the %s interpreter
 You haven't entered any code.""" % (LANGNAME)
