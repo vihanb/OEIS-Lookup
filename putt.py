@@ -9,6 +9,18 @@ LANGNAME = "Putt" # The language name
 def execute(code):
   # Decode input stuff
   num = int(code) # TODO: improve decoder
+  try:
+    url = urllib2.urlopen("http://oeis.org/A%06d/list" % num);
+    data = url.read()
+    url.close()
+    print data
+  except urllib2.HTTPError:
+    print "Could not find sequence A%06d" % num
+  except urllib2.URLError:
+    print "Could not connect to sources";
+  except:
+    print "Verify your numbers are correct"
+    url.close()
 
 # Determines what do with the source code
 def determine(code):
