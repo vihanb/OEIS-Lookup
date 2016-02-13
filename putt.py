@@ -6,6 +6,14 @@ from bs4 import BeautifulSoup
 LANGNAME = "Putt" # The language name
 
 # TODO: Make experimental encoder
+def octals(string):
+    return (string[0+i:8+i] for i in range(0, len(string), 8))
+
+def decode(str):
+  return int(''.join(map(lambda l: bin(ord(l))[2:], str)),2)
+
+def encode(str):
+  return ''.join(map(lambda l: chr(int(l, 2)), octals(bin(str)[2:])))
 
 # Main logic
 def execute(code, nth):
@@ -40,7 +48,8 @@ def determine(code, inpt):
   elif code.startswith(PYTHON_KEYWORD):
     exec(code[int(len(PYTHON_KEYWORD)):])
   else:
-    raise ValueError('%s could not parse the input' % LANGNAME);
+    execute(decode(code), inpt)
+    # raise ValueError('%s could not parse the input' % LANGNAME);
 
 if __name__ == '__main__':
   if len(sys.argv) > 1:
