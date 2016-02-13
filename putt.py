@@ -3,6 +3,13 @@ import sys
 
 LANGNAME = "Putt" # The language name
 
+# TODO: Make experimental encoder
+
+# Main logic
+def execute(code):
+  # Decode input stuff
+  num = int(code) # TODO: improve decoder
+
 # Determines what do with the source code
 def determine(code):
   PYTHON_KEYWORD = "PYTHON" # To run code as Python
@@ -11,11 +18,11 @@ def determine(code):
   elif code.startswith(PYTHON_KEYWORD):
     exec(code[int(len(PYTHON_KEYWORD)):])
   else:
-    raise ValueError('%s could not parse the input' % LANGNAME)
+    raise ValueError('%s could not parse the input' % LANGNAME);
 
 if __name__ == '__main__':
   if len(sys.argv) > 1:
     determine(sys.argv[1])
   else:
     print """This is the %s interpreter
-    You haven't entered any code.""" % (LANGNAME)
+You haven't entered any code.""" % (LANGNAME)
