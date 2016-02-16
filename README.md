@@ -1,4 +1,5 @@
 # OEIS Lookup
+[![Code Review](http://www.zomis.net/codereview/shield/?qid=120102)](http://codereview.stackexchange.com/q/120102/74474)  
 A tool for looking up sequences in OEIS
 
 ## Notes
