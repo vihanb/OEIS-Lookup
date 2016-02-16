@@ -12,12 +12,11 @@ def execute(code, nth):
     f = urlopen("http://oeis.org/A%06d/list" % num)
     # >:D I'm sorry but I have to use RegEx to parse HTML
     print(
-      search("(?<={0}) (\d+)".format(nth), sub(r'\D+', " ",
-        str(BeautifulSoup(f, "lxml").find(lambda tag:
+      search("(?<={0})\D+(\d+)".format(nth), str(BeautifulSoup(f, "lxml").find(lambda tag:
           tag.name == "table" and # A table
           tag.get('cellspacing') != "0" and # A table table
           len(tag.contents) > 1 # A two column table
-        )).split("a(n)")[1])).group(1))
+        )).split("a(n)")[1]).group(1))
   except HTTPError:
     print("Could not find sequence A{0:06d}".format(num), file=stderr)
   except URLError:
